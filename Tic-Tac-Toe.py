@@ -68,13 +68,10 @@ def change_player(game):
 
 
 def check_win(game, X_O: str) -> bool:
-    if game['board'][0][0] == game['board'][0][1] == game['board'][0][2] == X_O:
-        return True
-    elif game['board'][1][0] == game['board'][1][1] == game['board'][1][2] == X_O:
-        return True
-    elif game['board'][2][0] == game['board'][2][1] == game['board'][2][2] == X_O:
-        return True
-    elif game['board'][0][0] == game['board'][1][1] == game['board'][2][2] == X_O:
+    for row in game['board']:
+        if row[0] == row[1] == row[2] == X_O:
+            return True
+    if game['board'][0][0] == game['board'][1][1] == game['board'][2][2] == X_O:
         return True
     elif game['board'][0][2] == game['board'][1][1] == game['board'][2][0] == X_O:
         return True
