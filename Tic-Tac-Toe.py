@@ -72,17 +72,14 @@ def check_win(game, X_O: str) -> bool:
     for row in game['board']:
         if row[0] == row[1] == row[2] == X_O:
             return True
+    #columns
+    for i in range (3):
+        if game['board'][0][i] == game['board'][1][i] == game['board'][2][i] == X_O:
+            return True
     # diagonals
     if game['board'][0][0] == game['board'][1][1] == game['board'][2][2] == X_O:
         return True
     elif game['board'][0][2] == game['board'][1][1] == game['board'][2][0] == X_O:
-        return True
-    # columns
-    elif game['board'][0][0] == game['board'][1][0] == game['board'][2][0] == X_O:
-        return True
-    elif game['board'][0][1] == game['board'][1][1] == game['board'][2][1] == X_O:
-        return True
-    elif game['board'][0][2] == game['board'][1][2] == game['board'][2][2] == X_O:
         return True
     else:
         return False
